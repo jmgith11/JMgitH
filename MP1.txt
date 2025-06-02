@@ -1,0 +1,53 @@
+#include <iostream>
+#include <string>
+#include <limits>
+
+using namespace std;
+
+int main() {
+    const string correctUsername = "admin";
+    const string correctPassword = "password123";
+    const int maxAttempts = 3;
+    int attempts = 0;
+    string username, password;
+
+    // ASCII Art Header
+    cout << "=====================================\n";
+    cout << "   Secure Login System\n";
+    cout << "=====================================\n";
+
+    while (attempts < maxAttempts) {
+        cout << "\nAttempt " << (attempts + 1) << " of " << maxAttempts << endl;
+        cout << "Enter Username: ";
+        cin >> username;
+        cout << "Enter Password: ";
+        cin >> password;
+
+        // Check credentials
+        if (username == correctUsername && password == correctPassword) {
+            // ASCII Art Success
+            cout << "\nAccess Granted!\n";
+            cout << "   ____  _               _    _ \n";
+            cout << "  / ___|| |_ _ __ __ _  | | _| |\n";
+            cout << " | |  _| __| '__/ _` | | |/ _` |\n";
+            cout << " | |_| | |_| | | (_| | | | (_| |\n";
+            cout << "  \\____|\\__|_|  \\__,_| |_|\n";
+            break;
+        } else {
+            // ASCII Art Failure
+            cout << "\nAccess Denied!\n";
+            cout << "   _______  \n";
+            cout << "  /       \\ \n";
+            cout << " /  X   X  \\ \n";
+            cout << " |    ^    | \n";
+            cout << " \\   ---   / \n";
+            cout << "  \\_______/ \n";
+            attempts++;
+            if (attempts == maxAttempts) {
+                cout << "\nMaximum attempts reached. Access locked.\n";
+            }
+        }
+    }
+
+    return 0;
+}
